@@ -165,6 +165,8 @@ a:hover .kp-arrow{transform:translateX(8px)}
    As a card passes the middle of the screen it tilts, the photo zooms in,
    the "Pogledaj" label slides up and the number steps right, like a mouse hover on desktop. */
 .kp-touch .kp-ph-cta{right:12px;bottom:12px;min-height:40px;padding:0 14px;font-size:10px}
+.kp-touch .kp-num{margin-right:16px !important}
+.kp-touch .kp-ph-in{transform-origin:50% 100%}
 .kp-touch .kp-work:active .kp-ph-in{transform:scale(1.07)}
 .kp-touch .kp-work:active .kp-ph-cta{transform:none}
 .kp-touch .kp-work:active .kp-num{transform:translateX(10px)}
@@ -181,6 +183,15 @@ a:hover .kp-arrow{transform:translateX(8px)}
 @keyframes kp-t-cta{0%,30%{transform:translateY(calc(100% + 24px))}42%,62%{transform:none}74%,100%{transform:translateY(calc(100% + 24px))}}
 @keyframes kp-t-num{0%,30%{transform:none}42%,62%{transform:translateX(10px)}74%,100%{transform:none}}
 @keyframes kp-t-meta{0%,30%{letter-spacing:0}42%,62%{letter-spacing:.06em}74%,100%{letter-spacing:0}}
+
+/* ---------- hero buttons: rounded outline, underlined text link ---------- */
+.kp-hb{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;box-sizing:border-box;border:1px solid transparent;border-radius:999px;background:transparent;color:#ffffff !important;font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:border-color .45s var(--ease),color .45s var(--ease)}
+.kp-hb-line{border-color:#ffffff}
+.kp-hb:hover,.kp-hb:focus-visible{color:#ae834b !important;border-color:#ae834b}
+.kp-hb:focus-visible{outline:2px solid #ae834b;outline-offset:4px}
+.kp-hu{display:inline-flex;align-items:center;min-height:44px;color:#ffffff !important;font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px;text-decoration-color:#ffffff;transition:text-decoration-color .45s var(--ease),color .45s var(--ease)}
+.kp-hu:hover,.kp-hu:focus-visible{color:#ae834b !important;text-decoration-color:#ae834b}
+.kp-hu:focus-visible{outline:2px solid #ae834b;outline-offset:4px}
 
 /* ---------- keyframes ---------- */
 @keyframes kp-rise{from{transform:translateY(108%)}to{transform:none}}

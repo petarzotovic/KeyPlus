@@ -55,7 +55,7 @@
 <template data-tpl="filter"><button data-gen type="button" class="kp-chip" data-pick="{{f.id}}" aria-pressed="{{f.pressed}}" style="{{f.style}}">{{f.label}}</button></template>
 <span style="margin-left: auto; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #5f5a52">Prikazano: <span data-count></span></span>
 </div>
-<div class="works" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.4vw, 40px); row-gap: clamp(56px, 7vw, 112px); align-items: start">
+<div class="works" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.4vw, 40px); row-gap: clamp(64px, 7vw, 112px); align-items: start">
 <template data-tpl="item"><button data-gen type="button" class="kp-cardbtn kp-work" data-open="{{p.idx}}" aria-label="{{p.label}}" style="{{p.cell}}">
 <div class="{{p.enter}}" style="{{p.delay}}">
 <div class="kp-wipe"><div class="kp-ph kp-light" data-tilt style="{{p.ratio}}"><img class="kp-ph-in" src="{{p.src}}" alt="{{p.alt}}" loading="lazy"><span class="kp-ph-cta" aria-hidden="true">Uvećaj <span>+</span></span></div></div>
@@ -105,10 +105,10 @@
 <template data-tpl="filter"><button data-gen type="button" class="kp-chip" data-pick="{{f.id}}" aria-pressed="{{f.pressed}}" style="{{f.style}}">{{f.label}}</button></template>
 </div>
 <p style="margin: 16px 20px 32px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #5f5a52">Prikazano: <span data-count></span></p>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; column-gap: 12px; row-gap: 32px; align-items: start; padding: 0 20px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; column-gap: 14px; row-gap: 32px; align-items: start; padding: 0 20px 56px">
 <template data-tpl="item"><button data-gen type="button" class="kp-cardbtn kp-work" data-open="{{p.idx}}" aria-label="{{p.label}}" style="{{p.cell}}">
 <div class="{{p.enter}}" style="{{p.delay}}">
-<div class="kp-wipe"><div class="kp-ph" style="{{p.ratio}}"><img class="kp-ph-in" src="{{p.src}}" alt="{{p.alt}}" loading="lazy"><span class="kp-ph-cta" aria-hidden="true">Uvećaj <span>+</span></span></div></div>
+<div class="kp-wipe"><div class="kp-ph" style="{{p.ratio}}"><img class="kp-ph-in" src="{{p.src}}" alt="{{p.alt}}" loading="lazy" style="object-position: 50% 100%"></div></div>
 <div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 1.35"><span><span class="kp-num" style="color: #ae834b; margin-right: 8px">{{p.num}}</span>{{p.project}}</span><span class="kp-meta-r" style="color: #5f5a52">{{p.room}}</span></div>
 </div>
 </button></template>

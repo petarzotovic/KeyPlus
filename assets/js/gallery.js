@@ -82,10 +82,15 @@
         var s1 = spanOf(list[rowItems[0]]) + 2;
         cells[rowItems[0]] = { start: row % 2 === 0 ? 1 : 13 - s1, span: s1, top: '0' };
       } else {
-        var col = 1;
+        /* rows take turns: edges / right inset / larger photos pushed right */
+        var n = rowItems.length, left = 12 - sum, v = row % 3;
+        var grow = (v === 2 && left >= n) ? 1 : 0;
+        left -= grow * n;
+        var tail = v === 1 ? Math.min(2, left) : 0;
+        var col = 1 + (v === 2 ? left : 0);
         rowItems.forEach(function (idx, k) {
-          var sp = spanOf(list[idx]);
-          var start = k === rowItems.length - 1 ? 13 - sp : col;
+          var sp = spanOf(list[idx]) + grow;
+          var start = k === n - 1 ? 13 - sp - tail : col;
           var offset = (k % 2 === (row % 2 === 0 ? 1 : 0)) ? 'clamp(40px, 7vw, 120px)' : '0';
           cells[idx] = { start: start, span: sp, top: offset };
           col = start + sp;
@@ -112,7 +117,7 @@
 
     function render() {
       var list = G.photos.filter(function (ph) { return state.cat === 'all' || ph.cat === state.cat; });
-      var cells = desk ? deskCells(list) : null;
+      
       var enter = state.flip ? 'kp-in-b' : 'kp-in-a';
 
       root.querySelectorAll('[data-gen]').forEach(function (n) { n.remove(); });
@@ -124,9 +129,11 @@
       filterTpl.insertAdjacentHTML('beforebegin', fHtml);
 
       var iHtml = list.map(function (ph, j) {
-        var cell = desk
-          ? 'grid-column: ' + cells[j].start + ' / span ' + cells[j].span + '; margin-top: ' + cells[j].top
-          : 'grid-column: ' + (ph.w / ph.h > 1.2 ? 'span 2' : 'span 1');
+        var pat = desk
+          ? [['1 / span 7', '4 / 3'], ['9 / span 4', '4 / 5'], ['1 / span 4', '4 / 5'], ['5 / span 4', '4 / 5'], ['9 / span 4', '4 / 5'], ['1 / span 4', '4 / 5'], ['6 / span 7', '4 / 3']]
+          : [['span 1', '4 / 5', '0'], ['span 1', '4 / 5', '56px']];
+        var q = pat[j % pat.length];
+        var cell = 'grid-column: ' + q[0] + (q[2] ? '; margin-top: ' + q[2] : '');
         return fill(itemTpl.innerHTML, 'p', {
           idx: j,
           num: pad(j + 1),
@@ -138,7 +145,7 @@
           cell: cell,
           enter: enter,
           delay: 'display: flex; flex-direction: column; gap: ' + (desk ? 18 : 10) + 'px; animation-delay: ' + (Math.min(j, desk ? 8 : 6) * 0.07).toFixed(2) + 's',
-          ratio: 'aspect-ratio: ' + ph.w + ' / ' + ph.h + '; background: #bfbbb0'
+          ratio: 'aspect-ratio: ' + q[1] + '; background: #bfbbb0'
         });
       }).join('');
       itemTpl.insertAdjacentHTML('beforebegin', iHtml);
