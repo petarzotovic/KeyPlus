@@ -1,0 +1,30 @@
+/* Key Plus - site layer (layout switch, page styles) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:#ffffff;color:#1c1a17;font-family:'Instrument Sans',system-ui,sans-serif}
+a{color:#1c1a17}
+a:hover{color:#ae834b}
+[hidden]{display:none !important}
+img{max-width:100%}
+
+/* desktop and phone layouts live on the same page; one is shown by screen width */
+.v-tel{display:none}
+@media (max-width: 760px){
+  .v-desk{display:none}
+  .v-tel{display:block}
+}
+
+/* desktop gallery grids */
+.v-desk .works > *{min-width:0}
+
+/* privacy policy */
+.kp-legal h2{margin:0 0 16px;font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(22px,2vw,28px);letter-spacing:-0.015em;line-height:1.2}
+.kp-legal p,.kp-legal li{margin:0;font-size:17px;line-height:1.75;color:#3d3a35}
+.kp-legal ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.kp-legal section{display:flex;flex-direction:column;gap:14px;border-top:1px solid #bfbbb0;padding-top:32px}
+.v-tel .kp-legal h2{margin:0 0 12px;font-size:22px}
+.v-tel .kp-legal p,.v-tel .kp-legal li{font-size:16px;line-height:1.7}
+.v-tel .kp-legal ul{padding-left:20px}
+.v-tel .kp-legal section{gap:12px;padding-top:24px}
+
+/* form status */
+.kp-form-note{margin:0;font-size:14px;line-height:1.5;color:#3d3a35}
