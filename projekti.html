@@ -79,7 +79,7 @@
 
 </div>
 
-<div class="kp v-tel" style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1c1a17; background: #ffffff; min-height: 100vh; overflow-x: hidden">
+<div class="kp kp-touch v-tel" style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #1c1a17; background: #ffffff; min-height: 100vh; overflow-x: hidden">
 
 <header class="kp-header kp-header-over" style="--kp-hh: 68px">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px">
@@ -108,8 +108,8 @@
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; column-gap: 12px; row-gap: 32px; align-items: start; padding: 0 20px">
 <template data-tpl="item"><button data-gen type="button" class="kp-cardbtn kp-work" data-open="{{p.idx}}" aria-label="{{p.label}}" style="{{p.cell}}">
 <div class="{{p.enter}}" style="{{p.delay}}">
-<div class="kp-wipe"><div class="kp-ph" style="{{p.ratio}}"><img class="kp-ph-in" src="{{p.src}}" alt="{{p.alt}}" loading="lazy"></div></div>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 1.35"><span><span style="color: #ae834b; margin-right: 8px">{{p.num}}</span>{{p.project}}</span><span style="color: #5f5a52">{{p.room}}</span></div>
+<div class="kp-wipe"><div class="kp-ph" style="{{p.ratio}}"><img class="kp-ph-in" src="{{p.src}}" alt="{{p.alt}}" loading="lazy"><span class="kp-ph-cta" aria-hidden="true">Uvećaj <span>+</span></span></div></div>
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 1.35"><span><span class="kp-num" style="color: #ae834b; margin-right: 8px">{{p.num}}</span>{{p.project}}</span><span class="kp-meta-r" style="color: #5f5a52">{{p.room}}</span></div>
 </div>
 </button></template>
 </div>

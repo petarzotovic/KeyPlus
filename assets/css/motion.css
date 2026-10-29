@@ -161,6 +161,27 @@ a:hover .kp-arrow{transform:translateX(8px)}
 .kp-footer-img a:hover{color:#ae834b}
 .kp-footer-img [style*="border-top"]{border-color:rgba(255,255,255,.28) !important}
 
+/* ---------- phone: the desktop hover effects, played by scroll and by touch ----------
+   As a card passes the middle of the screen it tilts, the photo zooms in,
+   the "Pogledaj" label slides up and the number steps right, like a mouse hover on desktop. */
+.kp-touch .kp-ph-cta{right:12px;bottom:12px;min-height:40px;padding:0 14px;font-size:10px}
+.kp-touch .kp-work:active .kp-ph-in{transform:scale(1.07)}
+.kp-touch .kp-work:active .kp-ph-cta{transform:none}
+.kp-touch .kp-work:active .kp-num{transform:translateX(10px)}
+@supports (animation-timeline: view()){
+  .kp-touch .kp-work{view-timeline-name:--kp-card}
+  .kp-touch .kp-work .kp-ph{animation:kp-t-tilt linear both;animation-timeline:--kp-card;animation-range:cover 0% cover 100%}
+  .kp-touch .kp-work .kp-ph-in{animation:kp-t-zoom linear both;animation-timeline:--kp-card;animation-range:cover 0% cover 100%}
+  .kp-touch .kp-work .kp-ph-cta{animation:kp-t-cta linear both;animation-timeline:--kp-card;animation-range:cover 0% cover 100%}
+  .kp-touch .kp-work .kp-num{animation:kp-t-num linear both;animation-timeline:--kp-card;animation-range:cover 0% cover 100%}
+  .kp-touch .kp-work .kp-meta-r{animation:kp-t-meta linear both;animation-timeline:--kp-card;animation-range:cover 0% cover 100%}
+}
+@keyframes kp-t-tilt{0%{transform:perspective(1400px) rotateX(6deg)}50%{transform:perspective(1400px) rotateX(0deg)}100%{transform:perspective(1400px) rotateX(-6deg)}}
+@keyframes kp-t-zoom{0%,22%{transform:scale(1)}42%,62%{transform:scale(1.07)}82%,100%{transform:scale(1)}}
+@keyframes kp-t-cta{0%,30%{transform:translateY(calc(100% + 24px))}42%,62%{transform:none}74%,100%{transform:translateY(calc(100% + 24px))}}
+@keyframes kp-t-num{0%,30%{transform:none}42%,62%{transform:translateX(10px)}74%,100%{transform:none}}
+@keyframes kp-t-meta{0%,30%{letter-spacing:0}42%,62%{letter-spacing:.06em}74%,100%{letter-spacing:0}}
+
 /* ---------- keyframes ---------- */
 @keyframes kp-rise{from{transform:translateY(108%)}to{transform:none}}
 @keyframes kp-fade{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
